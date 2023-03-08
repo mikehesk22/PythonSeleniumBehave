@@ -12,7 +12,7 @@ class BasePage(object):
    
     def Click(self, by_locator):
         try:
-            WebDriverWait(self.driver).until(EC.presence_of_element_located(by_locator)).click()
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator)).click()
         except EX as e:
             print("Exception! Can't click on the element")
 
@@ -26,7 +26,7 @@ class BasePage(object):
     
     def ReturnElementText(self, by_locator):
         try:
-            element = WebDriverWait(self.driver).until(EC.visibility_of_element_located((by_locator)))
+            element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((by_locator)))
             return element.text
         except EX as e:
             print("Exception! Cannot return Element text")
